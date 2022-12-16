@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCreator</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Szymon Gniadek">
+    <link rel="stylesheet" href="../css/quiz-creator.css">
+</head>
+<body>
+    <div class="buttons">
+        <button id="about">About</button>
+        <button id="save">Save As</button>
+        <button id="import" disabled>Import</button>
+        <button id="export">Export</button>
+    </div>
+    <div id="import-window">
+        <h1>Wklej zapis z pliku .json</h1>
+        <textarea></textarea>
+        <div style="display: flex; justify-content: space-between;">
+            <button style="display: block;" class="bigger-button" id="load-file-button">Wczytaj zapis</button>
+            <button class="bigger-button" id="cancel-button">Anuluj</button>
+        </div>
+    </div>
+    <div class="box" id="box1">
+            <p>Podaj nazwę quizu: <input type="text" id="quiz-name"></p>
+            <p id="error-span"></p>
+            <button id="create-button" class="create-button">Stwórz</button>    
+            <button id="load-button" class="create-button" style="width:100%;margin-top:10px;">Załaduj istniejący</button>  
+    </div>
+    <div class="box hidden" id="box2">
+        <p>Nazwa quizu: <input type="input" id="quiz-name2"></p>
+        <p>Limit pytań <span title="Liczba oznacza liczbę pytań, która wystąpi w quiz'ie.">&copy;</span>: <input type="number" value="1" maxlength="3" style="width:50px" id="question-limit"> </p>
+        <div id="questions">
+
+        </div>
+        <div style="display:flex;justify-content: space-between;">
+            <button id="addQuestion" class="create-button">Dodaj nowe pytanie</button>
+            <button id="removeQuestion" class="create-button">Usuń pytanie</button>
+        </div>
+    </div>
+    <div class="green-block" id="green-block">Save File has loaded.</div>
+
+    <script src="../FileSaver.min.js"></script>
+    <script src="../jszip.min.js"></script>
+    <script src="../quizCreator.js"></script>
+</body>
+</html>

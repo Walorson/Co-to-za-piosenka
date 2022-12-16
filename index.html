@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co to za piosenka?</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Szymon Gniadek">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontello.css">
+</head>
+<body>
+    <div class="blackScreen"></div>
+    <h1 class="logo">Co to za piosenka?</h1>
+    <button class="back"><i class="icon-undo"></i></button>
+    <h1 class="menuInfo"></h1>
+    <div class="menu" id="firstMenu">
+            <button id="play">Rozpocznij</button>
+            <button id="exit">Wyjdź</button>
+    </div>
+    <div class="menu" id="secondMenu">
+        <button id="difficultPackBtn">Difficult Pack</button>
+        <button id="genrePackBtn">Genre Pack</button>
+        <button id="artistPackBtn">Artist Pack</button>
+        <button id="customSongsBtn">Custom Songs</button>
+    </div>
+    <div class="menu" id="difficultPack">
+        <button id="simpleBtn">Simple</button>
+        <button id="easyBtn">Easy</button>
+        <button id="normalBtn">Normal</button>
+        <button id="hardBtn">Hard</button>
+        <button id="veryhardBtn">Very Hard</button>
+        <button id="extremeBtn">Extreme</button>
+        <button id="brutalBtn">Brutal</button>
+        <button id="hardcoreBtn">Hardcore</button>
+    </div>
+    <div class="menu" id="artistPack">
+        <button id="jjna100Btn">JJna100</button>
+        <button id="edjBtn">E - DJ</button>
+        <button id="netskyBtn">Netsky</button>
+        <button id="szpakuBtn">Szpaku</button>
+        <button id="aerialtwistBtn">Aerial Twist</button>
+    </div>
+    <div class="menu" id="customSongs">
+
+    </div>
+    <script src="jquery-min.js"></script>
+    <script src="customSongs/!config.js"></script>
+    <script src="customSongsLoader.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
