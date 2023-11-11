@@ -120,6 +120,8 @@ function getRandomQuestion(questionLimit) {
 const blackScreen = document.querySelector(".blackScreen");
 let inactive = false;
 window.onload = () => {
+    document.querySelector('.infoStart').textContent = 'CLICK TO BEGIN';
+
     window.onclick = () => {
         if(inactive == false) {
             blackScreen.style.opacity = 0;
