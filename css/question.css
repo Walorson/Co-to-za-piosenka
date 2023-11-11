@@ -67,7 +67,7 @@ body {
     transition: all 0.5s ease-out;
 }
 .endMenu button { width: 405px; }
-.endMenu button:last-child { width: 300px; margin-left: 15px; }
+.endMenu button:last-child { width: 320px; margin-left: 15px; }
 .youWon {
     display: block;
     position: absolute;

@@ -23,11 +23,12 @@ class Quiz {
 class Question {
     constructor() {
         this.id = questions.length+1;
+        this.typeOfAudio = ".mp3";
 
         questionsDiv.innerHTML += `<div class="question" id="question${this.id}">
             <h3>Pytanie ${this.id}</h3>
             <div id="answers${this.id}">
-                <p class="space-between"><span>Nazwa audio:</span> <input type="text" id="audio${this.id}" placeholder="MusicName.mp3"></p>
+                <p class="space-between"><span>Nazwa audio:</span> <span class="joinElements"><input type="text" id="audio${this.id}" placeholder="AudioName"><select id="typeOfAudio${this.id}"><option>.mp3</option><option>.ogg</option><option>.wav</option></select></span></p>
                 <p class="space-between"><span>Poprawna odpowiedź:</span> <input type="text" id="correctAnswer${this.id}"></p>
                 <p class="space-between"><span>Błędna odpowiedź 1:</span> <input type="text" id="wrongAnswer${this.id}-1"></p>
             </div>
@@ -42,12 +43,11 @@ class Question {
         this.answersDiv = document.getElementById(`answers${this.id}`)
         this.addAnswer = document.getElementById(`addAnswer${this.id}`);
         this.removeAnswer = document.getElementById(`removeAnswer${this.id}`);
+        this.typeOfAudioDiv = document.getElementById(`typeOfAudio${this.id}`);
         this.addAnswer.onclick = () => {
             this.answers.push("");
-            this.answersDiv.innerHTML += `<p class="space-between" id="wrongAnswer${this.id}-${this.answers.length-2}"><span>Błędna odpowiedź ${this.answers.length-2}:</span> <input type="text"></p>`;
 
-            if(this.answers.length > 3) this.removeAnswer.style.display = "";
-            else this.removeAnswer.style.display = "none";
+            this.addAnswerFunction();
 
             this.update();
         }
@@ -60,11 +60,20 @@ class Question {
 
             this.update();
         }
+        this.typeOfAudioDiv.value = this.typeOfAudio;
+        this.typeOfAudioDiv.oninput = () => { this.typeOfAudio = this.typeOfAudioDiv.value; }
+
         const inputsAnswer = this.answersDiv.querySelectorAll("input");
         inputsAnswer.forEach((item, index) => {
             item.value = this.answers[index];
             item.oninput = () => { this.answers[index] = item.value; }
         });
+    }
+    addAnswerFunction() {
+        this.answersDiv.innerHTML += `<p class="space-between" id="wrongAnswer${this.id}-${this.answers.length-2}"><span>Błędna odpowiedź ${this.answers.length-2}:</span> <input type="text"></p>`;
+
+        if(this.answers.length > 3) this.removeAnswer.style.display = "";
+        else this.removeAnswer.style.display = "none";
     }
 }
 
@@ -87,13 +96,6 @@ createBtn.addEventListener("click",() => {
 const box1 = document.getElementById("box1");
 const box2 = document.getElementById("box2");
 
-const checkBox2Height = () => {
-    if(box2.offsetHeight >= 747) {
-        box2.style.overflowY = "scroll";
-        box2.style.maxHeight = '746px';
-    }
-}
-box2.addEventListener("click",checkBox2Height);
 const changeWindow = () => {
     box1.classList.add("hidden");
     box2.classList.remove("hidden");
@@ -102,11 +104,18 @@ const changeWindow = () => {
 }
 const createQuestion = () => {  
     questions.push(new Question);
-    questions.forEach(item => { item.update(); })
+    if(questions.length > 1) questions[questions.length-1].typeOfAudio = questions[questions.length-2].typeOfAudio;
+    questions.forEach(item => { item.update(); });
+    updateQuestionLimit();
 }
 const removeQuestion = () => {
     document.getElementById(`question${questions[questions.length-1].id}`).remove();
     questions.pop();
+    updateQuestionLimit();
+}
+const updateQuestionLimit = () => {
+    quiz.questionLimit = questions.length;
+    questionLimitBtn.value = questions.length;
 }
 addQuestion.addEventListener("click",createQuestion);
 removeQuestionBtn.addEventListener("click",removeQuestion);
@@ -153,16 +162,22 @@ loadBtn.addEventListener("click",() => {
     for(let i=0; i < currentSave.questionsCount; i++) {
         let q = new Question();
         q.answers = currentSave.questions[i].answers;
+        q.typeOfAudio = currentSave.questions[i].typeOfAudio;
+        for(let j=3; j < q.answers.length; j++) {
+            q.addAnswerFunction();
+        }
         questions.push(q);
     }
     questions.forEach(item => { item.update(); });
     inputQuizName2.value = quiz.name;
     questionLimitBtn.value = quiz.questionLimit;
 
-    checkBox2Height();
     greenBlock.appearDisappear();
 });
 
+inputQuizName2.addEventListener("input",() => {
+    quiz.name = inputQuizName2.value;
+});
 
 exportBtn.addEventListener("click",() => {
 /////////////////////////// VALIDATION //////////////////////////////////////////////
@@ -171,7 +186,7 @@ exportBtn.addEventListener("click",() => {
         questionLimitBtn.makeRedBorder(); return;
     }
     else if(quiz.questionLimit < 1) {
-        alert("Nieprawidłowa wartość limitu pytań. Minimalnie musi wyności 1!");
+        alert("Nieprawidłowa wartość limitu pytań. Minimalnie musi wynosić 1!");
         questionLimitBtn.makeRedBorder(); return;
     }
     else questionLimitBtn.removeBorder();
@@ -197,7 +212,7 @@ let question = new Array();`;
         for(let j=1; j<questions[i].answers.length; j++) {
             scriptAnswers += `,"${questions[i].answers[j]}"`;
         }
-        script += `\nquestion[${i}] = new Question("audio/${questions[i].answers[0]}"${scriptAnswers});`
+        script += `\nquestion[${i}] = new Question("audio/${questions[i].answers[0]}${questions[i].typeOfAudio}"${scriptAnswers});`
     }
 script += `\n\ngetRandomQuestion(questionLimit);`;
 
@@ -217,7 +232,7 @@ script += `\n\ngetRandomQuestion(questionLimit);`;
         <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="blackScreen"></div>
+        <div class="blackScreen"><div class="infoStart">CLICK TO BEGIN</div></div>
         <div class="header">
             <div class="question" id="counter">1/${quiz.questionLimit}</div>
             <div class="question">Co to za piosenka?</div>
@@ -231,15 +246,22 @@ script += `\n\ngetRandomQuestion(questionLimit);`;
     </html>`;
     let jsFile = new Blob([script],{ type: "text/plain;charset=utf-8" });
     let htmlFile = new Blob([html],{ type: "text/plain;charset=utf-8" });
+    let jsonFile = saveToFile();
     const zip = new JSZip();
-    zip.file(`${quiz.name}.html`,htmlFile);
-    zip.file(`${quiz.name}.js`,jsFile);
-    zip.folder(`audio`);
+    const folder = zip.folder(`${quiz.name}`);
+    folder.file(`${quiz.name}.html`,htmlFile);
+    folder.file(`${quiz.name}.js`,jsFile);
+    folder.file(`${quiz.name}-save.json`, jsonFile)
+    folder.folder(`audio`);
     zip.generateAsync({type: "blob"}).then((content) => {
         saveAs(content, `${quiz.name}.zip`);
     });
 });
 saveBtn.addEventListener("click",() => {
+    let jsonFile = saveToFile();
+    saveAs(jsonFile, `${quiz.name}-save.json`);
+});
+const saveToFile = () => {
     let json = 
     `{
         "name": "${quiz.name}",
@@ -258,15 +280,16 @@ saveBtn.addEventListener("click",() => {
         //Tablica pytań
         json += `{
             "id": ${questions[i].id},
-            "answers": ${answersJSON}
+            "answers": ${answersJSON},
+            "typeOfAudio": "${questions[i].typeOfAudio}"
         },`
     }
     json = json.substring(0,json.length-1);
     json += "]\n}";
 
     let jsonFile = new Blob([json],{ type: "text/plain;charset=utf-8" });
-    saveAs(jsonFile, "save.json");
-});
+    return jsonFile;
+}
 
 String.prototype.isAlphaNumeric = function() {
     for(let i=0; i < this.length; i++) {
@@ -303,5 +326,15 @@ Object.prototype.appearDisappear = function() {
         this.style.transform = 'translateY(50px)';
     },1750)
 }
+/////////// Check if the file has been saved! //////////////
+box2.addEventListener("click",() => {
+    window.onbeforeunload = () => { return "Are you sure?"; }
+});
+saveBtn.addEventListener("click",() => {
+    window.onbeforeunload = () => { ; }
+})
+exportBtn.addEventListener("click",() => {
+    window.onbeforeunload = () => { ; }
+})
 /////////// ANIMATIONS SECTION ////////////
 const greenBlock = document.getElementById("green-block");

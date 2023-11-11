@@ -1,0 +1,19 @@
+{
+        "name": "Example",
+        "questionLimit": 3,
+        "questionsCount": 3,
+        "questions": [
+    {
+            "id": 1,
+            "answers": ["BurnItDown","Burn It Down","World of Warcraft","Symfonia C++","Numb"],
+            "typeOfAudio": ".mp3"
+        },{
+            "id": 2,
+            "answers": ["Kotleti","Yeti Kotleti","Uciekliśmy z wyspy"],
+            "typeOfAudio": ".mp3"
+        },{
+            "id": 3,
+            "answers": ["HelpLoseMyMind","Help Lose my Mind","Don't Help Lose my Mind","Szpaku - Młody 2pac","Justin Bieber - Baby","Krzysztof Krawczyk - Łaka maka dance"],
+            "typeOfAudio": ".mp3"
+        }]
+}

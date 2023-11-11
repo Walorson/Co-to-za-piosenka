@@ -16,5 +16,7 @@ question[11] = new fourQuestion("../audio/upokorzenie2.mp3","Upokorzenie 2","Upo
 question[12] = new fourQuestion("../audio/walentynki.mp3","Walentynki","Zakład","Detektyw Grzesław","Upokorzenie 2");
 question[13] = new fourQuestion("../audio/wpysk.mp3","W pysk","Zakład","Papierosy","Detektyw Grzesław Zaginione Klucze");
 question[14] = new fourQuestion("../audio/zaklad.mp3","Zakład","Walentynki","Detektyw Grzesław","Diss na Bartka");
+question[15] = new fourQuestion("../audio/karkowka.mp3","Karkówka", "Zakład", "Diss na Bartka", "Detektyw Grzesław");
+question[16] = new fourQuestion("../audio/dissNaBartka3.mp3", "Diss na Bartka 3", "Detektyw Grzesław Zaginione Klucze", "Jebać Jarka Je Je", "Karkówka");
 
 getRandomQuestion(questionLimit);

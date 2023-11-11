@@ -1,5 +1,5 @@
 1. Wykonaj w kreatorze swój quiz.
-2. Z pobranego pliku .zip wypakuj pliki i folder z quizem wrzuć do tego folderu. Pliki audio, których nazwy zostały wcześniej wpisane w edytorze muszą znaleźć się w folderze "audio" pod tą samą nazwą i rozszerzeniem. Czyli jeśli wpisałeś np. "BurnItDown.mp3" to plik audio musi nazywać się "BurnItDown" i mieć rozszerzenie mp3. (Wielkość liter ma znaczenie).
+2. Z pobranego pliku .zip wypakuj pliki i folder z quizem wrzuć do tego folderu.
 Struktura powinna wyglądać tak:
 
 customSongs
@@ -13,9 +13,9 @@ customSongs
             Kotleti.mp3
 
 3. Otwórz plik "!Config.js" i dopisz w nim kolejny element z tablicy z nazwą twojego quizu.
-Czyli na przykład:
+Czyli:
 	Przed:
-	const customSongsList = ["Popular polish songs"];
+	const customSongsList = [""];
 
 	Po dopisaniu:
-	const customSongsList = ["Popular polish songs","Minecraft Songs"];
+	const customSongsList = ["Minecraft Songs"];

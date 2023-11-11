@@ -36,6 +36,13 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.joinElements {
+    display: flex;
+    justify-content: right;
+    width: 250px;
+    margin: 0; padding: 0;
+}
+.joinElements input { width: 115px; }
 .question {
     margin: 20px 0;
 }
@@ -75,6 +82,9 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background-color: #ddd; border-radius: 5px; }
 ::-webkit-scrollbar-thumb { background-color: #999; }
+select {
+    height: 100%;
+}
 /* Responsive Page */
 @media (max-height: 444px) { #box2 { height: calc(75% * 0.8); } }
 @media (max-height: 394px) { #box2 { height: calc(70% * 0.8); } }

@@ -11,6 +11,7 @@ window.addEventListener("click",() => {
     }
 });
 $("#exit").click(() => {
+    $(".infoStart").css("opacity",0);
     setTimeout(()=> {
         blackScreen.style.zIndex = 50;
         blackScreen.style.opacity = 1;
@@ -81,4 +82,5 @@ $("#normalBtn").click(() => location.href = 'difficultPack/normal.html');
 ////////// Artist Pack ////////////////
 $("#jjna100Btn").click(() => location.href = 'artistPack/jjna100.html');
 $("#edjBtn").click(() => location.href = 'artistPack/edj.html');
+$("#eddyjBtn").click(() => location.href = 'artistPack/eddyj.html');
 $("#aerialtwistBtn").click(() => location.href = 'artistPack/aerialtwist.html');

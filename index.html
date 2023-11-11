@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="css/fontello.css">
 </head>
 <body>
-    <div class="blackScreen"></div>
+    <div class="blackScreen">
+        <div class="infoStart">CLICK TO BEGIN</div>
+    </div>
     <h1 class="logo">Co to za piosenka?</h1>
     <button class="back"><i class="icon-undo"></i></button>
     <h1 class="menuInfo"></h1>
@@ -25,7 +27,6 @@
     </div>
     <div class="menu" id="secondMenu">
         <button id="difficultPackBtn">Difficult Pack</button>
-        <button id="genrePackBtn">Genre Pack</button>
         <button id="artistPackBtn">Artist Pack</button>
         <button id="customSongsBtn">Custom Songs</button>
     </div>
@@ -33,17 +34,18 @@
         <button id="simpleBtn">Simple</button>
         <button id="easyBtn">Easy</button>
         <button id="normalBtn">Normal</button>
-        <button id="hardBtn">Hard</button>
-        <button id="veryhardBtn">Very Hard</button>
-        <button id="extremeBtn">Extreme</button>
-        <button id="brutalBtn">Brutal</button>
-        <button id="hardcoreBtn">Hardcore</button>
+        <button id="hardBtn" class="disabled">Hard</button>
+        <button id="veryhardBtn" class="disabled">Very Hard</button>
+        <button id="extremeBtn" class="disabled">Extreme</button>
+        <button id="brutalBtn" class="disabled">Brutal</button>
+        <button id="hardcoreBtn" class="disabled">Hardcore</button>
     </div>
     <div class="menu" id="artistPack">
         <button id="jjna100Btn">JJna100</button>
-        <button id="edjBtn">E - DJ</button>
-        <button id="netskyBtn">Netsky</button>
-        <button id="szpakuBtn">Szpaku</button>
+        <button id="edjBtn">E - DJ <b><i>Legacy</b></i></button>
+        <button id="eddyjBtn">EddyJ</button>
+        <button id="netskyBtn" class="disabled">Netsky</button>
+        <button id="szpakuBtn" class="disabled">Szpaku</button>
         <button id="aerialtwistBtn">Aerial Twist</button>
     </div>
     <div class="menu" id="customSongs">

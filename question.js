@@ -1,13 +1,13 @@
-const counter = document.getElementById("counter");
-let time = 30; let count = 1;
-const timer = document.getElementById("timer");
+const counter = document.getElementById("counter"); // Counter div (30 seconds)
+let time = 30; let count = 1; // Time: From 30 to 0 | Count: Number of Question
+const timer = document.getElementById("timer"); // Timer div
 timer.textContent = time;
 const dieAudio = new Audio(`${path}../audio/die.mp3`);
 const winAudio = new Audio(`${path}../audio/win.mp3`);
 
 const end = () => {
     clearInterval(interval);
-    document.body.innerHTML += '<div class="endMenu"><button class="endButton">Return To Menu</button><button class="endButton">Restart</button></div><div class="blackPath"></div><div class="blackPath"></div>';
+    document.body.innerHTML += '<div class="endMenu"><button class="endButton">Return To Menu</button><button class="endButton">Try Again</button></div><div class="blackPath"></div><div class="blackPath"></div>';
     setTimeout(() => {
         document.querySelector("img").style.filter = "brightness(75%)";
         document.querySelectorAll(".blackPath").forEach(item => item.style.opacity = 1);
@@ -119,18 +119,20 @@ function getRandomQuestion(questionLimit) {
 //////// BLACK SCREEN //////////
 const blackScreen = document.querySelector(".blackScreen");
 let inactive = false;
-window.onclick = () => {
-    if(inactive == false) {
-        blackScreen.style.opacity = 0;
-        setTimeout(() => blackScreen.style.zIndex = -50,900);
-        allQuestion[count-1].createQuestion();
-        interval = setInterval(() => {
-            time--;
-            timer.textContent = time;
-            if(time <= 0) {
-                die();
-            }
-        },1000);
-        inactive = true;
+window.onload = () => {
+    window.onclick = () => {
+        if(inactive == false) {
+            blackScreen.style.opacity = 0;
+            setTimeout(() => blackScreen.style.zIndex = -50,900);
+            allQuestion[count-1].createQuestion();
+            interval = setInterval(() => {
+                time--;
+                timer.textContent = time;
+                if(time <= 0) {
+                    die();
+                }
+            },1000);
+            inactive = true;
+        }
     }
 }
