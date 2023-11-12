@@ -132,6 +132,7 @@ infoStart.innerHTML = `
 
 window.onload = () => {
     infoStart.textContent = 'CLICK TO BEGIN';
+    infoStart.style.cursor = 'pointer';
 
     window.onclick = () => {
         if(inactive == false) {
