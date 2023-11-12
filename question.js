@@ -119,8 +119,19 @@ function getRandomQuestion(questionLimit) {
 //////// BLACK SCREEN //////////
 const blackScreen = document.querySelector(".blackScreen");
 let inactive = false;
+const infoStart = document.querySelector('.infoStart')
+infoStart.innerHTML = `
+<span style="--i:1;">L</span>
+<span style="--i:2;">O</span>
+<span style="--i:3;">A</span>
+<span style="--i:4;">D</span>
+<span style="--i:5;">I</span>
+<span style="--i:6;">N</span>
+<span style="--i:7;">G</span>
+`;
+
 window.onload = () => {
-    document.querySelector('.infoStart').textContent = 'CLICK TO BEGIN';
+    infoStart.textContent = 'CLICK TO BEGIN';
 
     window.onclick = () => {
         if(inactive == false) {

@@ -92,3 +92,13 @@ button:hover {
     font-size: 5rem;
     letter-spacing: 5px;
 }
+.infoStart span {
+    display: inline-block;
+    animation: wavy 1.85s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes wavy {
+    0% {   transform: translateY(0px); }
+    15% { transform: translateY(-25px); }
+    30%,100% { transform: translateY(0px); }
+}
