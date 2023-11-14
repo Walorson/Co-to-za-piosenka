@@ -18,7 +18,7 @@ int main()
     }
  
     configFile << "//Wpisz nazwe dodanej przed chwila piosenki do tablicy ponizej | Przyklad poprawnej skladni tablicy: [\"Example\",\"Another Example\",\"Super Example!\"]; (Albo po prostu uzyj gotowego programu ImportCustomSongs)\n";
-    configFile << "const customSongsList = [";
+    configFile << "const customPackList = [";
 
         for (const auto& entry : fs::directory_iterator(folderPath))
         {

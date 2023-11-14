@@ -16,7 +16,7 @@ const end = () => {
 }
 const die = () => {
     document.body.innerHTML = "";
-    document.body.innerHTML = `<img src="${path}../die.jpg" class="die">`; 
+    document.body.innerHTML = `<img src="${path}../img/die.jpg" class="die">`; 
     setTimeout(() => {
         const button = document.querySelectorAll(".endButton");
         button.forEach(item => { item.style.opacity = 1; item.style.cursor = "pointer"; });
@@ -28,7 +28,7 @@ const die = () => {
 }
 const win = () => {
     document.body.innerHTML = "";
-    document.body.innerHTML = `<img src="${path}../win.jpg" class="die">`;
+    document.body.innerHTML = `<img src="${path}../img/win.jpg" class="die">`;
     document.body.innerHTML += '<h1 class="youWon">YOU WON!</h1>';
     setTimeout(() => { document.querySelector(".youWon").style.top = "1px"; });
     setTimeout(() => {
@@ -96,14 +96,6 @@ class Question {
         });
     }
 } 
-class fourQuestion extends Question {
-    constructor(audio, correctAnswer, answer2, answer3, answer4) {
-        super(audio, correctAnswer, answer2, answer3);
-        this.answer4 = answer4;
-
-        this.answer.push(`<button>${answer4}</button>`);
-    }
-}
 //////// TICK ///////////////
 let interval;
 //////// RANDOMIZE //////////

@@ -12,14 +12,14 @@ customSongs
             HelpLoseMyMind.mp3
             Kotleti.mp3
 
-3. Uruchom program "ImportCustomSongs.exe" - program za ciebie automatycznie zimportuje do gry niestandardowy quiz :)
+3. Uruchom program "ImportCustomQuizzes.exe" - program za ciebie automatycznie zimportuje do gry niestandardowy quiz :)
 
 LUB (Stary sposób)
 
 Otwórz plik "!Config.js" i dopisz w nim kolejny element z tablicy z nazwą twojego quizu.
 Czyli:
 	Przed:
-	const customSongsList = ["Example"];
+	const customPackList = ["Example"];
 
 	Po dopisaniu:
-	const customSongsList = ["Example", "Minecraft Songs"];
+	const customPackList = ["Example", "Minecraft Songs"];

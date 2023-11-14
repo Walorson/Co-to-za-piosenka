@@ -40,12 +40,12 @@ $("#artistPackBtn").click(() => {
     $(".menuInfo").html("Artist Pack");
     menuStatus = "artistPack";
 });
-$("#customSongsBtn").click(() => {
+$("#customPackBtn").click(() => {
     $("#secondMenu").css("top","-1000px");
 
-    $("#customSongs").css("top","50%");
-    $(".menuInfo").html("Custom Songs");
-    menuStatus = "customSongs";
+    $("#customPack").css("top","50%");
+    $(".menuInfo").html("Custom Pack");
+    menuStatus = "customPack";
 });
 $(".back").click(() => {
     switch(menuStatus) {
@@ -67,8 +67,8 @@ $(".back").click(() => {
             $("#secondMenu").css("top","50%");
             menuStatus = "secondMenu";
         } break;
-        case "customSongs": {
-            $("#customSongs").css("top","-1000px");
+        case "customPack": {
+            $("#customPack").css("top","-1000px");
             $(".menuInfo").html("");
             $("#secondMenu").css("top","50%");
             menuStatus = "secondMenu";

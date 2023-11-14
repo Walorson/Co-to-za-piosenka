@@ -17,6 +17,7 @@ let quizExist = false;
 class Quiz {
     constructor(name) {
         this.name = name;
+        this.author = "Anonymous";
         this.questionLimit = 1;
         quizExist = true;
     }
@@ -157,6 +158,7 @@ loadBtn.addEventListener("click",() => {
     importTextarea.value = "";
 
     quiz.name = currentSave.name;
+    quiz.author = currentSave.author;
     quiz.questionLimit = currentSave.questionLimit;
     questions = [];
     document.querySelectorAll(".question").forEach(item => { item.remove(); });
@@ -171,6 +173,7 @@ loadBtn.addEventListener("click",() => {
     }
     questions.forEach(item => { item.update(); });
     inputQuizName2.value = quiz.name;
+    inputQuizAuthor.value = quiz.author;
     questionLimitBtn.value = quiz.questionLimit;
 
     greenBlock.appearDisappear();
@@ -201,6 +204,10 @@ exportBtn.addEventListener("click",() => {
         inputQuizName2.makeRedBorder(); return;
     }
     else inputQuizName2.removeBorder();
+
+    if(inputQuizAuthor.value.length < 1) {
+        inputQuizAuthor.value = 'Anonymous';
+    }
 
 ///////////////////////////// SCRIPT ///////////////////////////////////
 
@@ -268,6 +275,7 @@ const saveToFile = () => {
     let json = 
     `{
         "name": "${quiz.name}",
+        "author": "${inputQuizAuthor.value}",
         "questionLimit": ${quiz.questionLimit},
         "questionsCount": ${questions.length},
         "questions": [
