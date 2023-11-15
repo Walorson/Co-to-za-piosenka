@@ -1,0 +1,8 @@
+Simple - The most popular song ever
+Easy - > 3 mld views
+Normal - > 1 mld views
+Hard - > 100 mln views
+Very Hard - > 30mln views
+Extreme ->  1mln views
+Brutal -> 100 tys views
+Hardcore - < 100 tys views

@@ -71,8 +71,8 @@ class Question {
             item.oninput = () => { this.answers[index] = item.value; }
         });
     }
-    addAnswerFunction() {
-        this.answersDiv.innerHTML += `<p class="space-between" id="wrongAnswer${this.id}-${this.answers.length-2}"><span>Błędna odpowiedź ${this.answers.length-2}:</span> <input type="text"></p>`;
+    addAnswerFunction(iterator = this.answers.length-2) {
+        this.answersDiv.innerHTML += `<p class="space-between" id="wrongAnswer${this.id}-${iterator}"><span>Błędna odpowiedź ${iterator}:</span> <input type="text"></p>`;
 
         if(this.answers.length > 3) this.removeAnswer.style.display = "";
         else this.removeAnswer.style.display = "none";
@@ -125,7 +125,7 @@ removeQuestionBtn.addEventListener("click",removeQuestion);
 questionLimitBtn.addEventListener("input",() => { quiz.questionLimit = questionLimitBtn.value; });
 
 aboutBtn.addEventListener("click",() => {
-    alert('Jest to program utworzony przez Szymona Gniadka w celu łatwego i szybkiego tworzenia swoich quizów do gry ,,Co to za piosenka?".')
+    alert('Jest to program utworzony przez Szymona Gniadka (pseudonim Walorson) w celu łatwego i szybkiego tworzenia swoich quizów do gry ,,Co to za piosenka?".')
 });
 
 ///////////////// IMPORT MODULE //////////////////////
@@ -167,7 +167,7 @@ loadBtn.addEventListener("click",() => {
         q.answers = currentSave.questions[i].answers;
         q.typeOfAudio = currentSave.questions[i].typeOfAudio;
         for(let j=3; j < q.answers.length; j++) {
-            q.addAnswerFunction();
+            q.addAnswerFunction(j-1);
         }
         questions.push(q);
     }

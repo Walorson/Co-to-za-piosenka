@@ -2,7 +2,7 @@
 const questionLimit = 10;
 let question = new Array();
 question[0] = new Question("../audio/human.mp3","Human","Skin","Gentleman","Hymn of the Weekend");
-question[1] = new Question("../audio/hymnoftheweekend.mp3","Hymn of the Weekend","Stressed Out","Rockabye","Love on me");
+question[1] = new Question("../audio/hymnoftheweekend.mp3","Hymn for the Weekend","Stressed Out","Rockabye","Love on me");
 question[2] = new Question("../audio/gentleman.mp3","Gentleman","Gangam style","Stressed out","Human");
 question[3] = new Question("../audio/closer.mp3","Closer","Summer","Sofia","Take on me");
 question[4] = new Question("../audio/aintyourmama.mp3","Ain't your Mama","Hey Mama","Hello","Shy Away");
