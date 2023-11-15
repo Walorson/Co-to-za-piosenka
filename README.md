@@ -17,4 +17,4 @@ Instrukcję jak to zrobić znajdziesz w folderze CustomSongs w pliku !HowToAddCu
 ## Zagraj już teraz!
 https://walorson.github.io/Co-to-za-piosenka/
 ## Kreator do tworzenia własnych quizów!
-https://walorson.github.io/Co-to-za-piosenka/customSongs/!quizCreator.html
+https://walorson.github.io/Co-to-za-piosenka/customPack/!quizCreator.html
