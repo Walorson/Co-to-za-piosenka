@@ -248,7 +248,8 @@ script += `\n\ngetRandomQuestion(questionLimit);`;
             <div class="question">Co to za piosenka?</div>
             <div class="question" id="timer"></div>
         </div>
-        <div class="answers" id="answers"> </div>
+        <div class="answers" id="answers"></div>
+        <div class="author"><span class='author-text'>Autor: </span>${inputQuizAuthor.value}</div>
         <script>let path = "../";</script>
         <script src="../../question.js"></script>
         <script src="${quiz.name}.js"></script>

@@ -15,6 +15,7 @@ const end = () => {
     },1800);
 }
 const die = () => {
+    allQuestion[count-1].audio.pause();
     document.body.innerHTML = "";
     document.body.innerHTML = `<img src="${path}../img/die.jpg" class="die">`; 
     setTimeout(() => {
@@ -89,7 +90,6 @@ class Question {
                     allQuestion[count-1].createQuestion();  
                  }
                 else {
-                    this.audio.pause();
                     die();
                 }
             }
