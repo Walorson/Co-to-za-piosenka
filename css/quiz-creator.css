@@ -46,6 +46,12 @@ body {
 .question {
     margin: 20px 0;
 }
+button:hover {
+    cursor: pointer;
+}
+button:disabled {
+    cursor: default;
+}
 .buttons { 
     position: fixed; top: 15px; left: 15px; 
 }
