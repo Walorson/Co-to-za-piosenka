@@ -81,6 +81,7 @@ $("#easyBtn").click(() => location.href = 'difficultPack/easy.html');
 $("#normalBtn").click(() => location.href = 'difficultPack/normal.html');
 $("#hardBtn").click(() => location.href = 'difficultPack/hard.html');
 $("#veryHardBtn").click(() => location.href = 'difficultPack/veryHard.html');
+$("#extremeBtn").click(() => location.href = 'difficultPack/extreme.html');
 ////////// Artist Pack ////////////////
 $("#jjna100Btn").click(() => location.href = 'artistPack/jjna100.html');
 $("#edjBtn").click(() => location.href = 'artistPack/edj.html');

@@ -14,5 +14,6 @@ question[7] = new Question("../audio/letsgo.mp3","Let's Go!","Mortals","My Heart
 question[8] = new Question("../audio/youmakeme.mp3","You Make Me","Addicted To You","Lonely Together","My Heart","Closer");
 question[9] = new Question("../audio/oblivion.mp3","Oblivion","Skyrim","Morowind","For A Better Day","Rise Up");
 question[10] = new Question("../audio/ludens.mp3","Ludens","Broken Arrows","Everytime","Live In The Moment","Tongue Tied");
+question[11] = new Question("../audio/geronimo.mp3","Geronimo","Broken Arrows","Fading Like a Flower","Live In The Moment","Famous Prophets");
 
 getRandomQuestion(questionLimit);
