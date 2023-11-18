@@ -87,3 +87,23 @@ body {
     font-size: 1.5em;
     opacity: 0.6;
 }
+@media (max-width: 1700px) {
+    .endMenu { left: 50%; }
+}
+@media (max-width: 1480px) {
+    .endMenu { left: 40%; }
+}
+@media (max-width: 1240px) {
+    .endMenu { left: 30%; }
+}
+@media (max-width: 1060px) {
+    .endMenu { transform: translateX(-50%); left: 50%; }
+}
+@media (max-width: 760px) {
+    .endMenu { flex-direction: column; left: 50%; transform: translateX(-50%); }
+    .endMenu button { width: 400px; }
+    .endMenu button:last-child { width: 400px; margin-left: 0; margin-top: 15px; }
+}
+@media (max-width: 700px) {
+    .question { font-size: 2rem; }
+}
