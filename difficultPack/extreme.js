@@ -13,5 +13,6 @@ question[6] = new Question("../audio/wecanmake.mp3","We Can Make The World Stop"
 question[7] = new Question("../audio/everyday.mp3","Everyday","Prisma","Eyes Closed","Our Way","The Sun","In The Mood");
 question[8] = new Question("../audio/thesun.mp3","The Sun","The Woods","Cute Thing","Plastic Soldiers","Head Is A Flame","And I");
 question[9] = new Question("../audio/aprilshowers.mp3","April Showers","All Night","Lone Digger","Catgroove","Slow Drag","Ouch");
+question[10] = new Question("../audio/mainmenu.mp3","Beautiful Lies","Sober To Death","Bodys","Prisma","Ardent","Still Alive");
 
 getRandomQuestion(questionLimit);

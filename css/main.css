@@ -75,7 +75,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     top: -1000px;
-    width: 40%
+    width: 40%;
 }
 .menu button { 
     margin-top: 15px;
