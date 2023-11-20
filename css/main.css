@@ -61,26 +61,28 @@ button:hover {
     z-index: -50;
 }
 #firstMenu {
+    display: flex;
     position: absolute;
-    top: 72%; left: 82%;
+    top: initial; bottom: 150px; left: 82%;
+    height: 200px;
 }
 #firstMenu button { width: 350px; }
-#difficultPack {
-    height: 602px;
+#secondMenu {
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 260px;
 }
 .menu {
+    display: none;
     position: absolute;
-    left: 50%; top: 50%;
-    transform: translate(-50%,-50%);
-    display: flex;
+    left: 50%; top: 180px;
+    transform: translateX(-50%);
     flex-direction: column;
-    top: -1000px;
     width: 40%;
 }
 .menu button { 
     margin-top: 15px;
 }
-::-webkit-scrollbar { -webkit-appearance: none; width: 0; }
 .disabled { filter: brightness(75%); }
 .disabled:hover { filter: brightness(75%); cursor: default; }
 .infoStart {
@@ -99,6 +101,20 @@ button:hover {
     display: inline-block;
     animation: wavy 1.85s ease-in-out infinite;
     animation-delay: calc(0.1s * var(--i));
+}
+.menu, #answers {
+    height: calc(100vh - 210px);
+    overflow-y: scroll;
+    overflow: auto;
+}
+.menu::-webkit-scrollbar, #answers::-webkit-scrollbar { 
+    border-radius: 15px;
+    width: 7px; 
+    background-color: #b94f08;
+}
+.menu::-webkit-scrollbar-thumb, #answers::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #ff9100;
 }
 @keyframes wavy {
     0% {   transform: translateY(0px); }
@@ -126,7 +142,7 @@ button:hover {
 @media (max-width: 610px) {
     .logo { width: 200px; }
     #firstMenu button { width: 100%; }
-    #firstMenu { left: 0; right: 0; transform: translateY(-50%); width: 100%; }
+    #firstMenu { left: 0; right: 0; top: initial; bottom: 5px; transform: translateY(-50%); width: 100%; }
 }
 @media (max-width: 500px) {
     .menu { width: 100%; }

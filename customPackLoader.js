@@ -9,3 +9,10 @@ for(let i=0; i<customPackList.length; i++) {
         location.href = 'customPack/'+customPackList[i]+'/'+customPackList[i]+'.html';
     });
 }
+
+if(customPackList.length <= 3)
+{
+    customPack.style.top = '50%';
+    customPack.style.transform = 'translate(-50%,-50%)';
+    customPack.style.height = 'auto';
+}

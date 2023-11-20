@@ -1,11 +1,10 @@
 const audioMainMenu = new Audio("audio/mainmenu.mp3");
-const blackScreen = document.querySelector(".blackScreen");
 
 let inactive = false;
 window.addEventListener("click",() => {
     if(inactive == false) {
-        blackScreen.style.opacity = 0;
-        setTimeout(() => blackScreen.style.zIndex = -50,900);
+        $('.blackScreen').css('opacity',0);
+        setTimeout(() => $('.blackScreen').css('zIndex',-50), 900);
         audioMainMenu.play();
         inactive = true;
     }
@@ -13,66 +12,38 @@ window.addEventListener("click",() => {
 $("#exit").click(() => {
     $(".infoStart").css("opacity",0);
     setTimeout(()=> {
-        blackScreen.style.zIndex = 50;
-        blackScreen.style.opacity = 1;
+        $('.blackScreen').css('zIndex',50);
+        $('.blackScreen').css('opacity',1);
     },0);
     setTimeout(close,1000);
 })
-let menuStatus = "";
+let menuStatus = "firstMenu";
 $("#play").click(() => {
-    $("#firstMenu").css("top","-1000px");
-    $("#secondMenu").css("top","50%");
+    setMenu("secondMenu", "firstMenu")
     $(".back").css("opacity",1);
     $(".back").css("z-index",1);
-    menuStatus = "secondMenu";
 });
 $("#difficultPackBtn").click(() => {
-    $("#secondMenu").css("top","-1000px");
-
-    $("#difficultPack").css("top","50%");
-    $(".menuInfo").html("Difficult Pack");
-    menuStatus = "difficultPack";
+    setMenu("difficultPack", "secondMenu", true);
 });
 $("#artistPackBtn").click(() => {
-    $("#secondMenu").css("top","-1000px");
-
-    $("#artistPack").css("top","50%");
-    $(".menuInfo").html("Artist Pack");
-    menuStatus = "artistPack";
+    setMenu("artistPack", "secondMenu", true);
 });
 $("#customPackBtn").click(() => {
-    $("#secondMenu").css("top","-1000px");
-
-    $("#customPack").css("top","50%");
-    $(".menuInfo").html("Custom Pack");
-    menuStatus = "customPack";
+    setMenu("customPack", "secondMenu", true);
 });
 $(".back").click(() => {
     switch(menuStatus) {
         case "secondMenu": {
-            $("#secondMenu").css("top","-1000px");
-            $("#firstMenu").css("top","72%");
+            setMenu("firstMenu", "secondMenu")
             $(".back").css("opacity",0);
             $(".back").css("z-index",-50);
         } break;
-        case "difficultPack": {
-            $("#difficultPack").css("top","-1000px");
-            $(".menuInfo").html("");
-            $("#secondMenu").css("top","50%");
-            menuStatus = "secondMenu";
-        } break;
-        case "artistPack": {
-            $("#artistPack").css("top","-1000px");
-            $(".menuInfo").html("");
-            $("#secondMenu").css("top","50%");
-            menuStatus = "secondMenu";
-        } break;
+        case "difficultPack":
+        case "artistPack": 
         case "customPack": {
-            $("#customPack").css("top","-1000px");
-            $(".menuInfo").html("");
-            $("#secondMenu").css("top","50%");
-            menuStatus = "secondMenu";
-        }
+            setMenu("secondMenu", menuStatus);
+        } break;
     }
 });
 /////////// Difficult Pack ////////////
@@ -89,3 +60,33 @@ $("#jjna100Btn").click(() => location.href = 'artistPack/jjna100.html');
 $("#edjBtn").click(() => location.href = 'artistPack/edj.html');
 $("#eddyjBtn").click(() => location.href = 'artistPack/eddyj.html');
 $("#aerialtwistBtn").click(() => location.href = 'artistPack/aerialtwist.html');
+
+///Utilities
+function setMenu(showMenu, hideMenu, menuInfo=false)
+{
+    $("#"+hideMenu).css("display","none");
+    $("#"+showMenu).css("display","flex");
+
+    if(menuInfo == true) 
+        $(".menuInfo").html(showMenu.cammelCaseCollapse()); 
+    else
+        $(".menuInfo").html('');
+
+    menuStatus = showMenu;
+}
+
+String.prototype.cammelCaseCollapse = function() 
+{
+    let newString = this[0].toUpperCase();
+    for(let i=1; i<this.length; i++)
+    {
+        if(this[i] == this[i].toUpperCase())
+        {
+            newString += " ";
+        }
+
+        newString += this[i];
+    }
+
+    return newString;
+}
