@@ -59,6 +59,7 @@ $("#hardcoreBtn").click(() => location.href = 'difficultPack/hardcore.html');
 $("#jjna100Btn").click(() => location.href = 'artistPack/jjna100.html');
 $("#edjBtn").click(() => location.href = 'artistPack/edj.html');
 $("#eddyjBtn").click(() => location.href = 'artistPack/eddyj.html');
+$("#netskyBtn").click(() => location.href = 'artistPack/netsky.html');
 $("#aerialtwistBtn").click(() => location.href = 'artistPack/aerialtwist.html');
 
 ///Utilities
