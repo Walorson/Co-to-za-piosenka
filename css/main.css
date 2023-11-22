@@ -116,6 +116,10 @@ button:hover {
     border-radius: 15px;
     background-color: #ff9100;
 }
+.align-right {
+    position: absolute;
+    right: 20px;
+}
 @keyframes wavy {
     0% {   transform: translateY(0px); }
     15% { transform: translateY(-25px); }

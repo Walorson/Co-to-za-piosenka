@@ -1,3 +1,5 @@
+const packName = toPackName(location.pathname);
+const quizName = location.pathname.slice(location.pathname.lastIndexOf("/")+1, location.pathname.length-5);
 const counter = document.getElementById("counter"); // Counter div (30 seconds)
 let time = 30; let count = 1; // Time: From 30 to 0 | Count: Number of Question
 const timer = document.getElementById("timer"); // Timer div
@@ -39,6 +41,9 @@ const win = () => {
     },1800);
     end();
     winAudio.play();
+
+    if(packName == "difficultPack" || packName == "artistPack")
+        getAchievement();
 }
 class Question {
     constructor(audio, correctAnswer, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9) {
@@ -95,7 +100,13 @@ class Question {
             }
         });
     }
-} 
+}
+
+function getAchievement()
+{ 
+    localStorage.setItem(quizName.toLowerCase()+"Completed", true);
+}
+
 //////// TICK ///////////////
 let interval;
 //////// RANDOMIZE //////////
@@ -141,4 +152,10 @@ window.onload = () => {
             inactive = true;
         }
     }
+}
+
+function toPackName(path)
+{
+    let removedLast = path.slice(0, path.lastIndexOf("/"));
+    return removedLast.slice(removedLast.lastIndexOf("/")+1, removedLast.length);
 }
