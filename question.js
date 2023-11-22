@@ -30,8 +30,10 @@ const die = () => {
     dieAudio.play();
 }
 const win = () => {
+    const rand = Math.floor(Math.random()*3)+1;
+
     document.body.innerHTML = "";
-    document.body.innerHTML = `<img src="${path}../img/win.jpg" class="die">`;
+    document.body.innerHTML = `<img src="${path}../img/win${rand}.gif" class="die">`;
     document.body.innerHTML += '<h1 class="youWon">YOU WON!</h1>';
     setTimeout(() => { document.querySelector(".youWon").style.top = "1px"; });
     setTimeout(() => {
@@ -159,3 +161,4 @@ function toPackName(path)
     let removedLast = path.slice(0, path.lastIndexOf("/"));
     return removedLast.slice(removedLast.lastIndexOf("/")+1, removedLast.length);
 }
+document.querySelector("head").innerHTML += '<link rel="icon" href="../img/favicon.png">';
