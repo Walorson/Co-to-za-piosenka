@@ -18,8 +18,8 @@ int main()
 void importCustomSongs()
 {
     fs::path folderPath = fs::current_path();
-    folderPath += "/customPack";
-    fs::path configPath = "./!config.js";
+    folderPath += "./customPack";
+    fs::path configPath = "./customPack/!config.js";
 
     std::cout << "IMPORTOWANIE NIESTANDARDOWYCH QUIZOW" << std::endl << std::endl;
 
@@ -51,6 +51,6 @@ void importCustomSongs()
 
     std::cout << std::endl << "Wszystkie niestandardowe quizy zostaly zimportowane pomyslnie :)" << std::endl;
     std::cout << "================================================================" << std::endl;
-    std::cout << "Nacisnij dowolny przycisk, aby uruchomic gre \"Co to za Piosenka?\" ..." << std::endl;
+    std::cout << "Nacisnij 'Enter', aby uruchomic gre \"Co to za Piosenka?\" ..." << std::endl;
     std::cin.get();
 }
